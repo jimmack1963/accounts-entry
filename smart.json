@@ -6,7 +6,8 @@
   "version": "0.5.3",
   "git": "https://github.com/BeDifferential/accounts-entry.git",
   "packages": {
-    "iron-router": "0.6.2",
+    "iron-router":  {
+    },
     "just-i18n": {}
   }
 }
