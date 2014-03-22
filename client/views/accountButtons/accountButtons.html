@@ -1,45 +1,44 @@
 <template name="entryAccountButtons">
-{{#if wrapLinks}} 
   {{#if currentUser}}
+
+    {{#if wrapLinks}}
       {{#if profileUrl}}
-      <li>
-        <a class='profileLink' href='{{profileUrl}}'>{{signedInAs}}</a>
-      </li>
+        <li><a class='profileLink' href='{{profileUrl}}'>{{{beforeSignedInAs}}}{{signedInAs}}</a></li>
       {{else}}
-      <li>
-        <p class="navbar-text">{{signedInAs}}</p>
-      </li>
+        <li><p class="navbar-text">{{{beforeSignedInAs}}}{{signedInAs}}</p></li>
       {{/if}}
     
-      <li>
-        <a href="/sign-out">{{i18n "signOut"}}</a>
-      </li>
-  
-  {{else}}
-      <li>
-        <a href="/sign-in">{{i18n "signIn"}}</a>
-      </li>
-    
-      <li>
-        <a href="/sign-up">{{i18n "signUp"}}</a>
-      </li>  
-  {{/if}}
-{{else}}
-  {{#if currentUser}}
+      <li><a href="/sign-out">{{{beforeSignOut}}}{{i18n "signOut"}}</a></li>
+
+    {{else}}
       {{#if profileUrl}}
-    
-          <a class='profileLink' href='{{profileUrl}}'>{{signedInAs}}</a>
-          {{else}}
-          <p class="navbar-text">{{signedInAs}}</p>
-    
+        <a class='profileLink' href='{{profileUrl}}'>{{{beforeSignedInAs}}}{{signedInAs}}</a>
+      {{else}}
+        <p class="navbar-text">{{{beforeSignedInAs}}}{{signedInAs}}</p>
       {{/if}}
-      <a href="/sign-out">{{i18n "signOut"}}</a>
-  {{else}}
-      <a href="/sign-in">{{i18n "signIn"}}</a>
-      <span>or</span>
     
-      <a href="/sign-up">{{i18n "signUp"}}</a>
+      <a href="/sign-out">{{{beforeSignOut}}}{{i18n "signOut"}}</a>
+      
+    {{/if}}
   
+  {{else}}
+  
+    {{#if wrapLinks}}
+      <li><a href="/sign-in">{{{beforeSignIn}}}{{i18n "signIn"}}</a></li>
+    
+      {{#unless wrapLinks}}<span>or</span>{{/unless}}
+    
+      <li><a href="/sign-up">{{{beforeSignUp}}}{{i18n "signUp"}}</a></li>
+  
+    {{else}}
+      <a href="/sign-in">{{{beforeSignIn}}}{{i18n "signIn"}}</a>
+      
+      {{#unless wrapLinks}}<span>or</span>{{/unless}}
+    
+      <a href="/sign-up">{{{beforeSignUp}}}{{i18n "signUp"}}</a>
+      
+    {{/if}}
+
+
   {{/if}}
-{{/if}}  
 </template>
